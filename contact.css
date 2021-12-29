@@ -1,0 +1,38 @@
+.bodi{
+    background-image: url(./contact.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+.header {
+   
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    text-decoration: none;
+}
+
+ul li a{
+  
+   padding-right: 12px;
+    text-decoration: none;
+    margin: 0px auto;
+   
+   
+}
+ul li a:hover {
+    background-color: tomato;
+    font-style: italic;
+    font-size: 15px;
+}
+.inscription {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    
+}
