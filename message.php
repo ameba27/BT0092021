@@ -7,5 +7,7 @@ try {
    echo " Message envoyé avec succès";
 } catch (\throwable $ba) {
     echo "erreur est : ".$ba->getmessage();
+    
 }
+
 ?>

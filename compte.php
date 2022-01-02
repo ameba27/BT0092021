@@ -8,6 +8,7 @@ session_start();
 <head>
     <link rel="stylesheet" href="w3.css">
     <link rel="stylesheet" href="./font/css/all.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <title>Document</title>
 </head>
 <body>
@@ -22,7 +23,9 @@ session_start();
         </header>
         <img src="trav.jpg" style="width: 100%;" alt="" class="w3-hidden">
         
-        <footer class="w3-display-top w3-green " style="width: 1OO%; height: 40px;"></footer>
+        <footer class="w3-display-top w3-green w3-padding" style="width: 1OO%; height: 40px;">
+        &copy Souleymane & Amadou BootCamp 2021
+     </footer>
     </div>
 
     <script>

@@ -1,5 +1,5 @@
 <?php
-include('connex.php');
+require('connex.php');
 
 try {
     $sql="INSERT INTO clients (nom, prenom, sexe, date_de_naissance, lieu_de_naissance, adresse, telephone, pseudo, email, passwords) VALUES (?,?,?,?,?,?,?,?,?,?)";
@@ -13,15 +13,15 @@ try {
 <head>
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./font/css/all.css">
-    
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 <body>
     <div class="w3-panel w3-green">
         <h1>INSCRIPTION REUSSIE!!!</h1>
-        <p>Vous pouvez accéder à votre compte ou retourner sur la page d'accueil</p>
+        <p>Vous pouvez vous connecter à votre compte avec vos identifiants</p>
     </div>
     <?php
-     include('formulaire.php');
+     include('login.php');
     ?>
 </body>
 </html>

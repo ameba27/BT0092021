@@ -11,6 +11,7 @@ $base=$query->fetchAll();
 <head>
     <link rel="stylesheet" href="w3.css">
     <link rel="stylesheet" href="./font/css/all.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 <body>
     <table class="w3-table-all w3-centered w3-hoverable ">
@@ -47,8 +48,8 @@ $base=$query->fetchAll();
             <td><?= $nas['pseudo']?></td>
             <td><?= $nas['email']?></td>
             <td><?= $nas['passwords']?></td>
-                <td class="w3-row-padding w3-bar-items w3-red w3-button"><a href="suppression.php?id="<?= $nas['id']?>><i>Supprimer</i></a></td>
-                <td class="w3-row-padding w3-bar-items w3-green w3-button"><a href="modif.php?id="<?= $nas['id']?>><i>modifier</i></a></td>
+                <td class="w3-row-padding w3-bar-items w3-red w3-button"><a href="suppression.php?id=<?=$nas['id']?>"><i class="fa fa-trash">Supprimer</i></a></td>
+                <td class="w3-row-padding w3-bar-items w3-green w3-button"><a href="modif.php?id=<?=$nas['id']?>"><i class='fa fa-edit'>modifier</i></a></td>
             </tr>
             <?php
               }
