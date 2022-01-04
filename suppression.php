@@ -4,11 +4,11 @@ require('connex.php');
     $car->bindValue(':num', $_GET['id'], PDO::PARAM_INT);
     $executeIsOk = $car->execute();
     if($executeIsOk){
-        echo 'le contact a été supprimé';
+        echo 'l\'utilisateur a été supprimé';
     }
     else{
         echo 'Echec de la suppression';
     }
 
-
+include('afficheTab.php');
 ?>

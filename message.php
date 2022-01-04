@@ -9,5 +9,5 @@ try {
     echo "erreur est : ".$ba->getmessage();
     
 }
-
+include('contact.php');
 ?>

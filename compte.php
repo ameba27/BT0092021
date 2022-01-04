@@ -17,13 +17,13 @@ session_start();
         <div class="w3-dropdown-click w3-right w3-green" style="margin-right: 60px; margin-top: 20px;">
              <i onclick="myFunction()" class="fa fa-user w3-xxlarge w3-circle w3-btn w3-yellow"></i>
              <div id="fair" class="w3-dropdown-content w3-bar-block w3-border w3-circle" >
-                  <a href="deconnex.php" class="w3-yellow w3-bar-item w3-btn">Déconnection</a>
+                  <a href="deconnex.php" class="w3-yellow w3-bar-item w3-btn">Déconnexion</a>
              </div>
        </div>
         </header>
         <img src="trav.jpg" style="width: 100%;" alt="" class="w3-hidden">
         
-        <footer class="w3-display-top w3-green w3-padding" style="width: 1OO%; height: 40px;">
+        <footer class="w3-display-top w3-green w3-center w3-padding" style="width: 1OO%; height: 40px;">
         &copy Souleymane & Amadou BootCamp 2021
      </footer>
     </div>

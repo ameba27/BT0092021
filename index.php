@@ -11,13 +11,14 @@
 </head>
 <body>
  <div class="w3-text-blue w3-animate-top">
-    <h2><marquee>Bienvenue sur notre site officiel : wwww.suniuprojet.sn</marquee></h2>
+    <h2><marquee>Bienvenue sur notre site officiel : www.suñuprojet.sn</marquee></h2>
     </div>
     <div class="header">
         <ul class="menu">
             <li><a href="index.php" class="w3-bar-item w3-button w3-blue"><i class="fas fa-home"></i>Home</a></li>
             <li><a href="https://www.eformation-inrs.fr/formation/8" class="w3-bar-item w3-button" >Formation</a></li>
-            <li><a href="http://kapitalis.com/" class="w3-bar-item w3-button">Informations</a></li>
+            <li><a href="http://kapitalis.com/" class="w3-bar-item w3-button">Informations</a></li> 
+            <li><a href="afficheTab.php" class="w3-bar-item w3-button">Gestion de Profil</a></li>
             <li><a href="contact.php" class="w3-bar-item w3-button">Contact</a></li>
 
         </ul>
