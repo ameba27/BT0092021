@@ -21,6 +21,7 @@
 <body>
     
     <div class="w3-display-container">
+    <a href="index.php" class="w3-display-topright w3-text-white w3-btn " style="text-decoration: none;"><strong><i class="fa fa-home"></i> HOME</strong></a> 
         <img src="image.jpeg" alt=""  style="width: 100%; height: 1000px">
           <div class="w3-display-topmiddle w3-hover-white w3-margin w3-opacity-min" style="width: 50%; height: 95%;">
               <form action="liaison.php" method="POST" class=" w3-container  w3-padding">
