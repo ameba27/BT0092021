@@ -32,6 +32,10 @@ $base=$query->fetchAll();
                 </ul>
            </div>
     </div>
+    <div class="w3-text-purple w3-animate-top">
+        
+        <h2><marquee> Voici la liste des utilisateurs </marquee></h2>
+     </div>
     <div class="w3-card w3-white w3-display-middle" style="width: 90%">
         <h2 class="w3-center w3-text-orange" style="font-weight: bold">La liste des utilisateurs</h2>
         <table class="w3-table-all w3-centered w3-hoverable ">
@@ -68,8 +72,9 @@ $base=$query->fetchAll();
                 <td><?= $nas['pseudo']?></td>
                 <td><?= $nas['email']?></td>
                 <td><?= $nas['passwords']?></td>
-                    <td class="w3-row-padding w3-bar-items w3-red w3-button"><a href="suppression.php?id=<?=$nas['id']?>"><i class="fa fa-trash">Supprimer</i></a></td>
-                    <td class="w3-row-padding w3-bar-items w3-green w3-button"><a href="modif.php?id=<?=$nas['id']?>"><i class='fa fa-edit'>modifier</i></a></td>
+                    <td class="w3-row-padding w3-bar-items  w3-purple"><a href="suppression.php?id=<?=$nas['id']?>"><i class="fa fa-trash w3-large  w3-text-red"></i></a></td>
+                    <td class="w3-row-padding w3-bar-items  w3-purple"><a href="modif.php?id=<?=$nas['id']?>"><i class='fa fa-edit w3-large  w3-text-green'></i></a></td>
+                    <td class="w3-row-padding w3-bar-item  w3-purple"><a href="detail.php?id=<?=$nas['id']?>"><i class="fa fa-eye w3-large  w3-text-yellow"></i></a></td>
                 </tr>
                 <?php
                   }
