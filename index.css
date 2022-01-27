@@ -43,8 +43,13 @@ ul li a{
     display: flex;
     justify-content: flex-end;
 }
-.icone {
-    position: sticky;
-    bottom: 30px
+
+.fixer {
+    position: fixed;
+    
+    left: 85%;
+    top: -200px;
+
+    
 }
 

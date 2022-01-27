@@ -32,7 +32,7 @@
                       <li classe="w3-text-teal">Prénom<span>*</span></li>
                       <input class=" w3-border w3-light-grey w3-hover-light-blue" type="text" name="prenom" required>
                       <br><br>
-                      <label classe="w3-text-teal">Sexe<span>*</span></label><br>
+                      <label classe="w3-text-teal">Genre<span>*</span></label><br>
                       <select class="w3-section" style="width:80%; height: 40px" name="sexe" id="" required>
                     
                           <option value=""disabled selected>Faites votre choix</option>

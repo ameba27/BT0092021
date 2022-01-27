@@ -1,16 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
     <link rel="stylesheet" href="w3.css">
     <link rel="stylesheet" href="./font/css/all.css">
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
-<body class="w3-display-container bodi w3-orange">
-    <div class="header w3-purple" style="height: 40px">
+<body class="w3-display-container bodi ">
+    <div class="header w3-purple fixed-top" style="height: 40px">
                 <ul class="menu">
                     <li><a href="index.php" class="w3-bar-item w3-button w3-purple w3-small"><i class="fas fa-home"></i>Home</a></li>
-                    <li><a href="" class="w3-bar-item w3-button w3-small w3-hover-text-white" >Formation</a></li>
+                    <li><a href="" class="w3-bar-item w3-button w3-small w3-hover-text-white" >Répertoire</a></li>
                     <li><a href="" class="w3-bar-item w3-button w3-small w3-hover-text-white">Informations</a></li> 
                     <li><a href="afficheTab.php" class="w3-bar-item w3-button w3-small w3-hover-text-white">Gestion des profils</a></li>
                     <li><a href="contact.php" class="w3-bar-item w3-button w3-small w3-hover-text-white">Contact</a></li>
@@ -19,13 +27,13 @@
                     <li><a href="formulaire.php" class="w3-animate-right w3-bar-item w3-button w3-small w3-hover-text-white ">Inscription</a></li>
                     <li><a href="login.php" class="w3-animate-right w3-bar-item w3-button w3-small w3-hover-text-white">Connexion</a></li>
                  </ul>
-            </div>
-            <div class="w3-text-purple w3-animate-top">
+            </div><br>
+            <div class="w3-text-purple w3-animate-top w3-margin">
         
        <h2><marquee> N'hésitez pas à nous envoyer des messages ou à nous contacter </marquee></h2>
     </div>
      </div><br>
-    <div class="w3-card w3-blue" style="width: 70%; margin-left: 200px; margin-bottom: 90px; heigth: 100px">
+    <div class="w3-card w3-orange" style="width: 70%; margin-left: 200px; margin-bottom: 90px; heigth: 100px">
         <div class="w3-container  w3-purple">
             <h2 ><legend><strong class="w3-center w3-center  w3-text-white" style="margin-left: 400px; font-weight: bold">CONTACT:</strong></legend></h2>
         </div>

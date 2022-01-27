@@ -4,7 +4,7 @@ require('connex.php');
 $sql="SELECT * FROM clients";
 $query = $lien->prepare($sql);
 $query->execute();
-$base=$query->fetchAll();
+$base=$query->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,13 +15,13 @@ $base=$query->fetchAll();
     <link rel="stylesheet" href="./font/css/all.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<body class="w3-orange">
+<body class="">
     <div class="x3-display-container w3-purple ">
        
            <div class="header" style="height: 40px; margin-bottom: 20px">
                <ul class="menu">
                    <li><a href="index.php" class="w3-bar-item w3-button w3-purple w3-small"><i class="fas fa-home"></i>Home</a></li>
-                   <li><a href="" class="w3-bar-item w3-button w3-small w3-hover-text-white" >Formation</a></li>
+                   <li><a href="" class="w3-bar-item w3-button w3-small w3-hover-text-white" >Répertoire</a></li>
                    <li><a href="" class="w3-bar-item w3-button w3-small w3-hover-text-white">Informations</a></li> 
                    <li><a href="afficheTab.php" class="w3-bar-item w3-button w3-small w3-hover-text-white">Gestion des profils</a></li>
                    <li><a href="contact.php" class="w3-bar-item w3-button w3-small w3-hover-text-white">Contact</a></li>
@@ -34,17 +34,17 @@ $base=$query->fetchAll();
     </div>
     <div class="w3-text-purple w3-animate-top">
         
-        <h2><marquee> Voici la liste des utilisateurs </marquee></h2>
+        <h2 class= "w3-text-xlarge"><marquee> Voici la liste des utilisateurs <i class="fa fa-users w3-text-orange"></i></marquee></h2>
      </div>
-    <div class="w3-card w3-white w3-display-middle" style="width: 90%">
-        <h2 class="w3-center w3-text-orange" style="font-weight: bold">La liste des utilisateurs</h2>
+    <div class="w3-card  w3-display-middle w3-orange" style="width: 90%">
+        <h2 class="w3-center w3-text-purple" style="font-weight: bold">La liste des utilisateurs <i class="fa fa-users w3-text-purple"></i></h2>
         <table class="w3-table-all w3-centered w3-hoverable ">
             <thead>
                 <tr class="w3-purple ">
                     <th>iD</th>
                     <th>Nom</th>
                     <th>Prénom</th>
-                    <th>Sexe</th>
+                    <th>Genre</th>
                     <th>Date de naissance</th>
                     <th>Lieu de naissance</th>
                     <th>Adresse</th>
@@ -58,23 +58,23 @@ $base=$query->fetchAll();
         
             <tbody>
                  <?php
-                 foreach($base as $nas) {
+                 foreach($base as $attitude) {
                  ?>
-                <tr class="w3-small w3-hover-purple ">
-                <td><?= $nas['id']?></td>
-                <td><?= $nas['nom']?></td>
-                <td><?= $nas['prenom']?></td>
-                <td><?= $nas['sexe']?></td>
-                <td><?= $nas['date_de_naissance']?></td>
-                <td><?= $nas['lieu_de_naissance']?></td>
-                <td><?= $nas['adresse']?></td>
-                <td><?= $nas['telephone']?></td>
-                <td><?= $nas['pseudo']?></td>
-                <td><?= $nas['email']?></td>
-                <td><?= $nas['passwords']?></td>
-                    <td class="w3-row-padding w3-bar-items  w3-purple"><a href="suppression.php?id=<?=$nas['id']?>"><i class="fa fa-trash w3-large  w3-text-red"></i></a></td>
-                    <td class="w3-row-padding w3-bar-items  w3-purple"><a href="modif.php?id=<?=$nas['id']?>"><i class='fa fa-edit w3-large  w3-text-green'></i></a></td>
-                    <td class="w3-row-padding w3-bar-item  w3-purple"><a href="detail.php?id=<?=$nas['id']?>"><i class="fa fa-eye w3-large  w3-text-yellow"></i></a></td>
+                <tr class="w3-small w3-hover-purple w3-orange">
+                <td><?= $attitude['id']?></td>
+                <td><?= $attitude['nom']?></td>
+                <td><?= $attitude['prenom']?></td>
+                <td><?= $attitude['sexe']?></td>
+                <td><?= $attitude['date_de_naissance']?></td>
+                <td><?= $attitude['lieu_de_naissance']?></td>
+                <td><?= $attitude['adresse']?></td>
+                <td><?= $attitude['telephone']?></td>
+                <td><?= $attitude['pseudo']?></td>
+                <td><?= $attitude['email']?></td>
+                <td><?= $attitude['passwords']?></td>
+                    <td class="w3-row-padding w3-bar-items  w3-purple"><a href="suppression.php?id=<?=$attitude['id']?>"><i class="fa fa-trash w3-large  w3-text-red"></i></a></td>
+                    <td class="w3-row-padding w3-bar-items  w3-purple"><a href="modif.php?id=<?=$attitude['id']?>"><i class='fa fa-edit w3-large  w3-text-green'></i></a></td>
+                    <td class="w3-row-padding w3-bar-item  w3-purple"><a href="detail.php?id=<?=$attitude['id']?>"><i class="fa fa-eye w3-large  w3-text-yellow"></i></a></td>
                 </tr>
                 <?php
                   }
