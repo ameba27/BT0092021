@@ -15,20 +15,31 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 <body class="w3-display-container bodi ">
-    <div class="header w3-purple fixed-top" style="height: 40px">
-                <ul class="menu">
-                    <li><a href="index.php" class="w3-bar-item w3-button w3-purple w3-small"><i class="fas fa-home"></i>Home</a></li>
-                    <li><a href="" class="w3-bar-item w3-button w3-small w3-hover-text-white" >Répertoire</a></li>
-                    <li><a href="" class="w3-bar-item w3-button w3-small w3-hover-text-white">Informations</a></li> 
-                    <li><a href="afficheTab.php" class="w3-bar-item w3-button w3-small w3-hover-text-white">Gestion des profils</a></li>
-                    <li><a href="contact.php" class="w3-bar-item w3-button w3-small w3-hover-text-white">Contact</a></li>
+    <div class="x3-display-container w3-purple fixed-top" >
+       
+           <div class="header" style="height: 40px">
+               <ul class="menu">
+                   <li><a href="index.php" class="w3-bar-item w3-button w3-purple w3-small"><i class="fas fa-home"></i>Home</a></li>
+                   <li class="w3-dropdown-hover">
+                       <a href="" class="w3-bar-item w3-button w3-small w3-hover-text-white ">Répertoire</a>
+                       <div class="collapse w3-border w3-dropdown-content w3-bar-block w3-purple " style="list-style: none" >       
+                               <a href="arts.php"  class=" w3-button  w3-bar-item w3-hover-text-white w3-border-bottom">art</a>
+                               <a href="natur.php"  class=" w3-bar-item w3-button w3-hover-text-white w3-border-bottom">nature</a>
+                               <a href="animal.php"  class=" w3-bar-item w3-button w3-hover-text-white w3-border-bottom">animal</a>
+                               <a href="conseils.php"  class=" w3-bar-item w3-button w3-hover-text-white ">parole</a>
+                      </div> 
+                   </li> 
+                   <li><a href="" class="w3-bar-item w3-button w3-small w3-hover-text-white">Informations</a></li> 
+                   <li><a href="afficheTab.php" class="w3-bar-item w3-button w3-small w3-hover-text-white">Gestion des profils</a></li>
+                   <li><a href="contact.php" class="w3-bar-item w3-button w3-small w3-hover-text-white">Contact</a></li>
+               </ul>
+                <ul class="inscription">
+                   <li><a href="formulaire.php" class="w3-animate-right w3-bar-item w3-button w3-small w3-hover-text-white ">Inscription</a></li>
+                   <li><a href="login.php" class="w3-animate-right w3-bar-item w3-button w3-small w3-hover-text-white">Connexion</a></li>
                 </ul>
-                 <ul class="inscription">
-                    <li><a href="formulaire.php" class="w3-animate-right w3-bar-item w3-button w3-small w3-hover-text-white ">Inscription</a></li>
-                    <li><a href="login.php" class="w3-animate-right w3-bar-item w3-button w3-small w3-hover-text-white">Connexion</a></li>
-                 </ul>
-            </div><br>
-            <div class="w3-text-purple w3-animate-top w3-margin">
+           </div>
+    </div>
+            <div class="w3-text-purple w3-animate-top "style="margin-top: 60px">
         
        <h2><marquee> N'hésitez pas à nous envoyer des messages ou à nous contacter </marquee></h2>
     </div>
