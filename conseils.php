@@ -27,7 +27,7 @@
                                <a href="arts.php"  class=" w3-button  w3-bar-item w3-hover-text-white w3-border-bottom">art</a>
                                <a href="natur.php"  class=" w3-bar-item w3-button w3-hover-text-white w3-border-bottom">nature</a>
                                <a href="animal.php"  class=" w3-bar-item w3-button w3-hover-text-white w3-border-bottom">animal</a>
-                               <a href="conseils.php"  class=" w3-bar-item w3-button w3-hover-text-white ">conseil</a>
+                               <a href="conseils.php"  class=" w3-bar-item w3-button w3-hover-text-white ">parole</a>
                       </div> 
                    </li> 
                    <li><a href="" class="w3-bar-item w3-button w3-small w3-hover-text-white">Informations</a></li> 

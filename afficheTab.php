@@ -1,10 +1,10 @@
 <?php
 require('connex.php');
 
-$sql="SELECT * FROM clients";
-$query = $lien->prepare($sql);
-$query->execute();
-$base=$query->fetchAll(PDO::FETCH_ASSOC);
+$sql="SELECT * FROM `clients`";
+$avoir = $lien->prepare($sql);
+$avoir->execute();
+$base= $avoir->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
 <html lang="en">

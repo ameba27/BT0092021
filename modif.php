@@ -2,49 +2,48 @@
 require_once('connex.php');
 
 if(isset($_POST)){
-    if(isset($_POST['nom'])  && !empty($_POST['nom'])
-      && isset($_POST['prenom']) && !empty($_POST['prenom']) 
-      && isset($_POST['sexe']) && !empty($_POST['sexe']) 
-      && isset($_POST['date_de_naissance']) && !empty($_POST['date_de_naissance'])
-      && isset($_POST['lieu_de_naissance']) && !empty($_POST['lieu_de_naissance']) 
-      && isset($_POST['adresse']) && !empty($_POST['adresse'])
-      && isset($_POST['telephone']) && !empty($_POST['telephone']) 
-      && isset($_POST['pseudo']) && !empty($_POST['pseudo']) 
-      && isset($_POST['email']) && !empty($_POST['email']) 
-      && isset($_POST['passwords']) && !empty($_POST['passwords'])){
-            $nom= strip_tags($_POST['nom']);
-            $prenom= strip_tags($_POST['prenom']);
-            $genre= strip_tags($_POST['sexe']);
-            $date=  strip_tags($_POST['date_de_naissance']);
-            $lieu= strip_tags($_POST['lieu_de_naissance']);
-            $adresse= strip_tags($_POST['adresse']);
-            $tel= strip_tags($_POST['telephone']);
-            $pseudo= strip_tags($_POST['pseudo']);
-            $email= strip_tags($_POST['email']);
-            $password= strip_tags($_POST['passwords']);
+    if(isset($_POST['id']) && !empty($_POST['id']) && isset($_POST[`nom`]) && !empty($_POST['nom']) && isset($_POST['prenom']) && !empty($_POST['prenom']) && isset($_POST['sexe']) && !empty($_POST['sexe']) && isset($_POST['date_de_naissance']) && !empty($_POST['date_de_naissance']) && isset($_POST['lieu_de_naissance']) && !empty($_POST['lieu_de_naissance']) && isset($_POST['adresse']) && !empty($_POST['adresse']) && isset($_POST['telephone']) && !empty($_POST['telephone']) && isset($_POST['pseudo']) && !empty($_POST['pseudo']) && isset($_POST['email']) && !empty($_POST['email']) && isset($_POST['passwords']) && !empty($_POST['passwords'])){
+        $id = strip_tags($_GET['id']);
+        $nom = strip_tags($_POST['nom']);
+        $prenom = strip_tags($_POST['prenom']);
+        $genre = strip_tags($_POST['sexe']);
+        $date = strip_tags($_POST['date_de_naissance']);
+        $lieu = strip_tags($_POST['lieu_de_naissance']);
+        $adresse = strip_tags($_POST['adresse']);
+        $telephone = strip_tags($_POST['telephone']);
+        $pseudo = strip_tags($_POST['pseudo']);
+        $email = strip_tags($_POST['email']);
+        $pass = strip_tags($_POST['passwords']);
+        $sql='UPDATE `clients` SET `nom`=:nom, `prenom`=:prenom, `sexe`=:sexe,  `date_de_naissance`=:date_de_naissance, `lieu_de_naissance`=:lieu_de_naissance, `adresse`=:adresse, `telephone`=:telephone, `pseudo`=:pseudo, `email`=:email, `passwords`=:passwords;';
+        $avoir= $lien->prepare($sql);
 
-            $sql = "INSERT INTO `clients`( `nom`, `prenom`, `sexe`, `date_de_naissance`, `lieu_de_naissance`, `adresse`, `telephone`, `pseudo`, `email`, `passwords`) VALUES (`:nom`, `:prenom`, `:sexe`, `:date_de_naissance`, `:lieu_de_naissance`, `:adresse`, `:telephone`, `:pseudo`, `:email`, `:passwords`)";
+        $avoir->bindValue('nom', $nom, PDO::PARAM_STR); 
+        $avoir->bindValue(':prenom', $prenom, PDO::PARAM_STR);
+        $avoir->bindValue(':sexe', $genre, PDO::PARAM_STR);
+        $avoir->bindValue(':date_de_naissance', $date, PDO::PARAM_INT);
+        $avoir->bindValue(':lieu_de_naissance', $lieu, PDO::PARAM_STR);
+        $avoir->bindValue(':adresse', $adresse, PDO::PARAM_STR);
+        $avoir->bindValue(':telephone', $telephone, PDO::PARAM_INT);
+        $avoir->bindValue(':pseudo', $pseudo, PDO::PARAM_STR);
+        $avoir->bindValue(':email', $email, PDO::PARAM_STR);
+        $avoir->bindValue(':passwords', $pass, PDO::PARAM_STR);
+        $avoir->bindValue(':id', $id, PDO::PARAM_INT);
 
-            $query = $lien->prepare($sql);
+        $avoir->execute();
 
-            $query->bindValue(`:nom`, $nom, PDO::PARAM_STR);
-            $query->bindValue(`:prenom`, $prenom, PDO::PARAM_STR);
-            $query->bindValue(`:sexe`, $genre, PDO::PARAM_STR);
-            $query->bindValue(`:date_de_naissance`, $date, PDO::PARAM_DATE);
-            $query->bindValue(`:lieu_de_naissance`, $lieu, PDO::PARAM_STR);
-            $query->bindValue(`:adresse`, $adresse, PDO::PARAM_STR);
-            $query->bindValue(`:telephone`, $tel, PDO::PARAM_INT);
-            $query->bindValue(`:pseudo`, $pseudo, PDO::PARAM_STR);
-            $query->bindValue(`:email`, $email, PDO::PARAM_STR);
-            $query->bindValue(`:passwords`, $password, PDO::PARAM_STR);
-        
-
-            $query->execute();
-            $_SESSION['message'] = "Produit ajouté avec succès !";
-            header('Location: afficheTab.php');
-        }
+        header('Location: afficheTab.php');
+    }
 }
 
+if(isset($_GET['id']) && !empty($_GET['id'])){
+    $id= strip_tags($_GET['id']);
+    $sql='SELECT * FROM `clients` WHERE `id`=:id;';
+
+    $avoir= $lien->prepare($sql);
+    $avoir->bindValue(':id', $id, PDO::PARAM_INT);
+    $avoir->execute();
+    $base= $avoir->fetch();
+}
    
     ?>
      <!DOCTYPE html>
@@ -94,27 +93,28 @@ if(isset($_POST)){
      <div class="w3-container  ">
      <form  method="POST"  style="display: flex; height: 340px;">
          <ul style="list-style: none; margin-top: 10px; margin-left: 50px">
-             <li>Nom</li><input  type="text" name="nom"><br><br>
-             <li>Prénom</li><input  type="text" name="prenom"><br><br><br>
-             <li>Genre</li><select  name="sexe" id="" style="width: 200px">
+             <li>Nom</li><input  type="text" name="nom"  value="<?= $base['nom'] ?>"><br><br>
+             <li>Prénom</li><input  type="text" name="prenom"  value="<?= $base['prenom'] ?>"><br><br><br>
+             <li>Genre</li><select  name="sexe" id="" style="width: 200px"  value="<?= $base['sexe'] ?>">
                  <option value=""disabled selected>Genre</option>
                  <option value="Femme">Femme</option>
                  <option value="Homme">Homme</option>
              </select><br>
          </ul>
          <ul style="list-style: none; margin-top: 10px; margin-left: 150px">
-             <li>Date de naissance</li><input  type="date" name="date_de_naissance"><br><br>
-             <li>Lieu de naissance</li><input  type="text" name="lieu_de_naissance"><br><br>
-             <li>Adresse</li><input type="text" name="adresse"><br><br>
+             <li>Date de naissance</li><input  type="date" name="date_de_naissance"  value="<?= $base['date_de_naissance'] ?>"><br><br>
+             <li>Lieu de naissance</li><input  type="text" name="lieu_de_naissance"  value="<?= $base['lieu_de_naissance'] ?>"><br><br>
+             <li>Adresse</li><input type="text" name="adresse"  value="<?= $base['adresse'] ?>"><br><br>
          </ul>
          <ul style="list-style: none; margin-top: 10px; margin-left: 150px">
              
-             <li>Téléphone</li><input type="tel" name="telephone"><br><br>
-             <li>Pseudo</li><input type="text" name="pseudo"><br><br>
-             <li>Email</li><input type="email" name="email"><br><br>
-             <li>Password</li><input type="password" name="passwords">
+             <li>Téléphone</li><input type="tel" name="telephone"  value="<?= $base['telephone'] ?>"><br><br>
+             <li>Pseudo</li><input type="text" name="pseudo"  value="<?= $base['pseudo'] ?>"><br><br>
+             <li>Email</li><input type="email" name="email"  value="<?= $base['email'] ?>"><br><br>
+             <li>Password</li><input type="password" name="passwords"  value="<?= $base['passwords'] ?>">
          </ul>
          <input type="submit" class="w3-btn w3-purple w3-tiny w3-display-bottommiddle" style="height: 35px; margin-bottom: 20px">
+         <input type="hidden" name='id'  value="<?= $base['id'] ?>">
      </form>
      </div>
  </div>
