@@ -71,7 +71,7 @@
         </div>
     </div>
     <div class="w3-display-container w3-botommiddle w3-purple w3-center w3-padding " style="width: 100%; height: 30px margin-top: 100px">
-       &copy Souleymane & Amadou BootCamp 2021
+       &copy Amadou & Souleymane BootCamp 2021
     </div>
 </body>
 </html>

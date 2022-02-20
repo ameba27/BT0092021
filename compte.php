@@ -24,7 +24,7 @@ session_start();
         <img src="trav.jpg" style="width: 100%;" alt="" class="w3-hidden">
         
         <footer class="w3-display-top w3-purple w3-center w3-padding" style="width: 1OO%; height: 40px;">
-        &copy Souleymane & Amadou BootCamp 2021
+        &copy Amadou & Souleymane BootCamp 2021
      </footer>
     </div>
 
