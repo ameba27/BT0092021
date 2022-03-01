@@ -1,3 +1,30 @@
+<?php
+include('connex.php');
+if(isset($_POST)){
+    if(isset($_POST['nom']) && !empty($_POST['nom']) && isset($_POST['prenom']) && empty($_POST['prenom']) && isset($_POST['email']) && !empty($_POST['email']) && isset($_POST['message']) && !empty($_POST['message'])){
+        $nom=$_POST['nom'];
+        $prenom=$_POST['prenom'];
+        $email=$_POST['email'];
+        $message=$_POST['message'];
+try {
+    $sql="INSERT INTO contact (nom, prenom, email, message ) VALUES (:nom, :prenom, :email, :message)";
+    $recevoir= $lien->prepare($sql);
+    $recevoir->bindValue('nom', $nom, PDO::PARAM_STR);
+    $recevoir->bindValue('prenom', $prenom, PDO::PARAM_STR);
+    $recevoir->bindValue('email', $nom, PDO::PARAM_STR);
+    $recevoir->bindValue('message', $prenom, PDO::PARAM_STR);
+    $recevoir->execute();
+    
+    
+} catch (\throwable $ba) {
+    echo "erreur est : ".$ba->getmessage();
+    
+}
+
+}
+
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -60,7 +87,9 @@
                   <h4><i class="fas fa-phone"> : +221 78 121 64 55</i></h4>
              </div>
              <div class="w3-container W3-cell-right" style="margin-bottom: 20px">
-                 <form action="message.php" method="POST" >
+                 
+                 <form action="" method="POST" >
+                         
                          <input type="text" name="nom" placeholder="Nom" class=" w3-border  w3-margin" style="width: 400px; height: 40px"><br>
                          <input type="text" name="prenom" placeholder="Prénom" class=" w3-border  w3-margin" style="width: 400px; height: 40px"><br>
                          <input type="email" name="email" placeholder="Email" class=" w3-border  w3-margin" style="width: 400px; height: 40px"><br>
