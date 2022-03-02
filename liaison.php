@@ -37,7 +37,7 @@ try {
 
     $requete->execute();
     $_SESSION['message'] = 'Utilisateur ajouté avec succès !';
-    header('Location: login.php');
+    header('Location: login.php?inscription reussie');
    
 } catch (\throwable $ba) {
     echo "erreur est : ".$ba->getmessage();
