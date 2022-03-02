@@ -36,7 +36,7 @@
                       <label classe="w3-text-teal">Genre<span>*</span></label><br>
                       <select class="w3-section" style="width:80%; height: 40px" name="sexe" id="" required>
                     
-                          <option value=""disabled selected>Faites votre choix</option>
+                          <option value=""disabled selected>Genre</option>
                           <option value="Homme">Homme</option>
                           <option value="Femme">Femme</option>
                       </select>
