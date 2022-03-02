@@ -135,8 +135,7 @@
     <div class="w3-container-bottom w3-purple w3-center w3-display-bottom  " style="width: 100%; margin: 0 auto; padding: 10px">
         
         &copy Amadou & Souleymane BootCamp 2021
-    société
-
+    </div>
 
 
 
