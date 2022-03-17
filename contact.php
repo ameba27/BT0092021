@@ -1,30 +1,16 @@
 <?php
-include('connex.php');
-if(isset($_POST)){
-    if(isset($_POST['nom']) && !empty($_POST['nom']) && isset($_POST['prenom']) && empty($_POST['prenom']) && isset($_POST['email']) && !empty($_POST['email']) && isset($_POST['message']) && !empty($_POST['message'])){
-        $nom=$_POST['nom'];
-        $prenom=$_POST['prenom'];
-        $email=$_POST['email'];
-        $message=$_POST['message'];
-try {
-    $sql="INSERT INTO contact (nom, prenom, email, message ) VALUES (:nom, :prenom, :email, :message)";
-    $recevoir= $lien->prepare($sql);
-    $recevoir->bindValue('nom', $nom, PDO::PARAM_STR);
-    $recevoir->bindValue('prenom', $prenom, PDO::PARAM_STR);
-    $recevoir->bindValue('email', $nom, PDO::PARAM_STR);
-    $recevoir->bindValue('message', $prenom, PDO::PARAM_STR);
-    $recevoir->execute();
+require('connex.php');
+    if($_POST){
     
-    
-} catch (\throwable $ba) {
-    echo "erreur est : ".$ba->getmessage();
-    
-}
-
-}
-
+            $receiv="INSERT INTO contact (nom, prenom, email, message) VALUES (?,?,?,?)";
+            $lien->prepare($receiv)->execute(array($_POST['nom'], $_POST['prenom'], $_POST['email'], $_POST['message']));
+            $nom=$_POST['nom'];
+            $prenom=$_POST['prenom'];
+            $email=$_POST['email'];
+            $message=$_POST['message'];
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

@@ -1,3 +1,24 @@
+<?php
+require('connex.php');
+
+if($_POST){
+    $sql='INSERT INTO `clients`(nom, prenom, sexe, date_de_naissance, lieu_de_naissance, adresse, telephone, pseudo, email, passwords) VALUES (?,?,?,?,?,?,?,?,?,?)';
+    $lien->prepare($sql)->execute(array($_POST['nom'], $_POST['prenom'], $_POST['sexe'], $_POST['date_de_naissance'], $_POST['lieu_de_naissance'], $_POST['adresse'], $_POST['telephone'], $_POST['pseudo'], $_POST['email'], $_POST['passwords']));
+    $nom=$_POST['nom'];
+    $prenom=$_POST['prenom'];
+    $genre=$_POST['sexe'];
+    $date=$_POST['date_de_naissance'];
+    $lieu=$_POST['lieu_de_naissance'];
+    $adresse=$_POST['adresse'];
+    $telephone=$_POST['telephone'];
+    $pseudo=$_POST['pseudo'];
+    $email=$_POST['email'];
+    $pass=$_POST['passwords'];
+}
+
+
+?>
+
 <!DOCTYPE html>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,7 +46,8 @@
     <a href="index.php" class="w3-display-topright w3-text-white w3-btn " style="text-decoration: none;"><strong><i class="fa fa-home"></i> HOME</strong></a> 
         <img src="image.jpeg" alt=""  style="width: 100%; height: 1000px">
           <div class="w3-display-topmiddle w3-hover-white w3-margin w3-opacity-min" style="width: 50%; height: 95%;">
-              <form action="liaison.php" method="POST" class=" w3-container  w3-padding">
+              <form action="" method="POST" class=" w3-container  w3-padding">
+
                   <ul>
                       <li classe="w3-text-teal">Nom<span>*</span></li>
                       <input class=" w3-border w3-light-grey w3-hover-light-blue" type="text" name="nom" required>
@@ -42,7 +64,7 @@
                       </select>
                       <br><br>
                       <li classe="w3-text-teal">Date de naissance <span>*</span></li>
-                      <input class=" w3-border w3-light-grey w3-hover-light-blue" type="date" name="date_de_naissance" required>
+                      <input class=" w3-border w3-light-grey w3-hover-light-blue" type="date" name="date_de_naissance" value="2003-02-27" required>
                       <br><br>
                       <li classe="w3-text-teal">Lieu de naissance</li>
                       <input class=" w3-border w3-light-grey w3-hover-light-blue" type="text" name="lieu_de_naissance">
