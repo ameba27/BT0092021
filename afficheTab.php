@@ -4,7 +4,7 @@ require('connex.php');
 $sql="SELECT * FROM `clients`";
 $avoir = $lien->prepare($sql);
 $avoir->execute();
-$base= $avoir->fetchAll(PDO::FETCH_ASSOC);
+$base= $avoir->fetchAll();
 ?>
 <!DOCTYPE html>
 <html lang="en">
