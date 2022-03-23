@@ -2,9 +2,9 @@
 require('connex.php');
 
 $sql="SELECT * FROM `clients`";
-$avoir = $lien->prepare($sql);
-$avoir->execute();
-$base= $avoir->fetchAll(PDO::FETCH_ASSOC);
+$query = $lien->prepare($sql);
+$query->execute();
+$base= $query->fetchAll();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -59,7 +59,7 @@ $base= $avoir->fetchAll(PDO::FETCH_ASSOC);
                     <th>Téléphone</th>
                     <th>Pseudo</th>
                     <th>Email</th>
-                    <th>Password</th>
+                    
                 
                 </tr>
             </thead>
@@ -79,7 +79,7 @@ $base= $avoir->fetchAll(PDO::FETCH_ASSOC);
                 <td><?= $attitude['telephone']?></td>
                 <td><?= $attitude['pseudo']?></td>
                 <td><?= $attitude['email']?></td>
-                <td><?= $attitude['passwords']?></td>
+                
                     <td class="w3-row-padding w3-bar-items  w3-purple"><a href="suppression.php?id=<?=$attitude['id']?>"><i class="fa fa-trash w3-large  w3-text-red"></i></a></td>
                     <td class="w3-row-padding w3-bar-items  w3-purple"><a href="modif.php?id=<?=$attitude['id']?>"><i class='fa fa-edit w3-large  w3-text-green'></i></a></td>
                     <td class="w3-row-padding w3-bar-item  w3-purple"><a href="detail.php?id=<?=$attitude['id']?>"><i class="fa fa-eye w3-large  w3-text-yellow"></i></a></td>

@@ -3,7 +3,7 @@ require('connex.php');
 
 try {
     $sql="INSERT INTO clients (nom, prenom, sexe, date_de_naissance, lieu_de_naissance, adresse, telephone, pseudo, email, passwords) VALUES (?,?,?,?,?,?,?,?,?,?)";
-    $lien->prepare($sql)->execute(array($_POST['nom'],$_POST['prenom'],$_POST['sexe'],$_POST['date_de_naissance'],$_POST['lieu_de_naissance'],$_POST['adresse'],$_POST['telephone'], $_POST['pseudo'],$_POST['email'],$_POST['passwords']));
+    $lien->prepare($sql)->execute(array($_POST['nom'],$_POST['prenom'],$_POST['sexe'],$_POST['date_de_naissance'],$_POST['lieu_de_naissance'],$_POST['adresse'],$_POST['telephone'], $_POST['pseudo'],$_POST['email'],sha1($_POST['passwords'])));
    // echo " Enregistrement effectué avec succès";
 } catch (\throwable $ba) {
     echo "erreur est : ".$ba->getmessage();
