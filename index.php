@@ -58,7 +58,7 @@ $new=$tenir->fetchAll();
                        </div> 
                     </li> 
                     <li><a href="admin.php" class="w3-bar-item w3-button w3-small w3-hover-text-white">Espace Admin</a></li> 
-                    <li><a href="pagin.php" class="w3-bar-item w3-button w3-small w3-hover-text-white">Gestion des profils</a></li>
+                    <li><a href="afficheTab.php" class="w3-bar-item w3-button w3-small w3-hover-text-white">Gestion des profils</a></li>
                     <li><a href="contact.php" class="w3-bar-item w3-button w3-small w3-hover-text-white">Contact</a></li>
                 </ul>
                  <ul class="inscription">
