@@ -140,7 +140,7 @@ if ($stmt = $mysqli->prepare('SELECT * FROM clients ORDER BY id LIMIT ?,?')) {
                     <th>Téléphone</th>
                     <th>Pseudo</th>
                     <th>Email</th>
-					
+					<th colspan="3">Action</th>
 				</tr>
 				<?php foreach ($result as $row ){ ?>
 				<tr>
@@ -155,36 +155,38 @@ if ($stmt = $mysqli->prepare('SELECT * FROM clients ORDER BY id LIMIT ?,?')) {
 					<td><?php echo $row['pseudo']; ?></td>
 					<td><?php echo $row['email']; ?></td>
 
-					
+					<td class="w3-row-padding w3-bar-items  w3-purple"><a href="suppression.php?id=<?=$row['id']?>"><i class="fa fa-trash w3-large  w3-text-red"></i></a></td>
+                    <td class="w3-row-padding w3-bar-items  w3-purple"><a href="modif.php?id=<?=$row['id']?>"><i class='fa fa-edit w3-large  w3-text-green'></i></a></td>
+                    <td class="w3-row-padding w3-bar-item  w3-purple"><a href="detail.php?id=<?=$row['id']?>"><i class="fa fa-eye w3-large  w3-text-yellow"></i></a></td>
 				</tr>
 				<?php  } ?>
 			</table>
 			<?php if (ceil($total_pages / $num_results_on_page) > 0): ?>
 			<ul class="pagination">
 				<?php if ($page > 1): ?>
-				<li class="prev"><a href="afficheTab.php?page=<?php echo $page-1 ?>">Prev</a></li>
+				<li class="prev"><a href="pagin.php?page=<?php echo $page-1 ?>">Prev</a></li>
 				<?php endif; ?>
 
 				<?php if ($page > 3): ?>
-				<li class="start"><a href="afficheTab.php?page=1">1</a></li>
+				<li class="start"><a href="pagin.php?page=1">1</a></li>
 				<li class="dots">...</li>
 				<?php endif; ?>
 
-				<?php if ($page-2 > 0): ?><li class="page"><a href="afficheTab.php?page=<?php echo $page-2 ?>"><?php echo $page-2 ?></a></li><?php endif; ?>
-				<?php if ($page-1 > 0): ?><li class="page"><a href="afficheTab.php?page=<?php echo $page-1 ?>"><?php echo $page-1 ?></a></li><?php endif; ?>
+				<?php if ($page-2 > 0): ?><li class="page"><a href="pagin.php?page=<?php echo $page-2 ?>"><?php echo $page-2 ?></a></li><?php endif; ?>
+				<?php if ($page-1 > 0): ?><li class="page"><a href="pagin.php?page=<?php echo $page-1 ?>"><?php echo $page-1 ?></a></li><?php endif; ?>
 
-				<li class="currentpage"><a href="afficheTab.php?page=<?php echo $page ?>"><?php echo $page ?></a></li>
+				<li class="currentpage"><a href="pagin.php?page=<?php echo $page ?>"><?php echo $page ?></a></li>
 
-				<?php if ($page+1 < ceil($total_pages / $num_results_on_page)+1): ?><li class="page"><a href="afficheTab.php?page=<?php echo $page+1 ?>"><?php echo $page+1 ?></a></li><?php endif; ?>
-				<?php if ($page+2 < ceil($total_pages / $num_results_on_page)+1): ?><li class="page"><a href="afficheTab.php?page=<?php echo $page+2 ?>"><?php echo $page+2 ?></a></li><?php endif; ?>
+				<?php if ($page+1 < ceil($total_pages / $num_results_on_page)+1): ?><li class="page"><a href="pagin.php?page=<?php echo $page+1 ?>"><?php echo $page+1 ?></a></li><?php endif; ?>
+				<?php if ($page+2 < ceil($total_pages / $num_results_on_page)+1): ?><li class="page"><a href="pagin.php?page=<?php echo $page+2 ?>"><?php echo $page+2 ?></a></li><?php endif; ?>
 
 				<?php if ($page < ceil($total_pages / $num_results_on_page)-2): ?>
 				<li class="dots">...</li>
-				<li class="end"><a href="afficheTab.php?page=<?php echo ceil($total_pages / $num_results_on_page) ?>"><?php echo ceil($total_pages / $num_results_on_page) ?></a></li>
+				<li class="end"><a href="pagin.php?page=<?php echo ceil($total_pages / $num_results_on_page) ?>"><?php echo ceil($total_pages / $num_results_on_page) ?></a></li>
 				<?php endif; ?>
 
 				<?php if ($page < ceil($total_pages / $num_results_on_page)): ?>
-				<li class="next"><a href="afficheTab.php?page=<?php echo $page+1 ?>">Next</a></li>
+				<li class="next"><a href="pagin.php?page=<?php echo $page+1 ?>">Next</a></li>
 				<?php endif; ?>
 			</ul>
 			<?php endif; ?>
