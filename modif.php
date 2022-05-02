@@ -1,17 +1,10 @@
-<?php
-require_once('connex.php');
+<?php  
+include('connex.php');  
 
 if(isset($_POST)){
-    if(isset($_POST['nom']) && !empty($_POST['nom'])
-        && isset($_POST['prenom']) && !empty($_POST['prenom'])
-        && isset($_POST['sexe']) && !empty($_POST['sexe'])
-        && isset($_POST['date_de_naissance']) && !empty($_POST['date_de_naissance'])
-        && isset($_POST['lieu_de_naissance']) && !empty($_POST['lieu_de_naissance'])
-        && isset($_POST['adresse']) && !empty($_POST['adresse'])
-        && isset($_POST['telephone']) && !empty($_POST['telephone'])
-        && isset($_POST['pseudo']) && !empty($_POST['pseudo'])
-        && isset($_POST['email']) && !empty($_POST['email'])
-        && isset($_POST['passwords']) && !empty($_POST['passwords'])){
+    if(isset($_POST['nom']) AND !empty($_POST['nom'])
+    AND isset($_POST['prenom']) AND !empty($_POST['prenom'])
+    AND isset($_POST['sexe']) AND !empty($_POST['sexe']) AND isset($_POST['date_de_naissance']) AND !empty($_POST['date_de_naissance']) AND isset($_POST['lieu_de_naissance']) AND !empty($_POST['lieu_de_naissance']) AND isset($_POST['adresse']) AND !empty($_POST['adresse']) AND isset($_POST['telephone']) AND !empty($_POST['telephone']) AND isset($_POST['pseudo']) AND !empty($_POST['pseudo']) AND isset($_POST['email']) AND !empty($_POST['email']) AND isset($_POST['passwords']) AND !empty($_POST['passwords'])){
         $id = strip_tags($_GET['id']);
         $nom = strip_tags($_POST['nom']);
         $prenom = strip_tags($_POST['prenom']);
@@ -22,22 +15,24 @@ if(isset($_POST)){
         $telephone = strip_tags($_POST['telephone']);
         $pseudo = strip_tags($_POST['pseudo']);
         $email = strip_tags($_POST['email']);
-        $passwords = strip_tags(hash($_POST['passwords']));
+        $password = strip_tags(md5($_POST['passwords']));
 
-        $sql = "UPDATE `clients` SET `nom`=:nom, `prenom`=:prenom, `sexe`=:sexe, `date_de_naissance`=:date_de_naissance, `lieu_de_naissance`=:lieu_de_naissance, `adresse`=:adresse, `telephone`=:telephone, `pseudo`=:pseudo, `email`=:email, `passwords`=:passwords WHERE `id`=:id";
+
+        $sql = "UPDATE `clients` SET `nom`=:nom, `prenom`=:prenom, `sexe`=:sexe, `date_de_naissance`=:date_de_naissance, `lieu_de_naissance`=:lieu_de_naissance, `adresse`=:adresse, `telephone`=:telephone, `pseudo`=:pseudo, `email`=:email, `passwords`=:passwords  WHERE `id`=:id;";
 
         $query = $lien->prepare($sql);
 
-        $query->bindValue(':nom', $_POST['nom'], PDO::PARAM_STR);
-        $query->bindValue(':prenom', $_POST['prenom'], PDO::PARAM_STR);
-        $query->bindValue(':sexe', $_POST['sexe'], PDO::PARAM_STR);
-        $query->bindValue(':date_de_naissance', $_POST['date_de_naissance'], PDO::PARAM_STR);
-        $query->bindValue(':lieu_de_naissance', $_POST['lieu_de_naissance'], PDO::PARAM_STR);
-        $query->bindValue(':adresse', $_POST['adresse'], PDO::PARAM_STR);
-        $query->bindValue(':telephone', $_POST['telephone'], PDO::PARAM_INT);
-        $query->bindValue(':email', $_POST_['email'], PDO::PARAM_STR);
-        $query->bindValue(':passwords', $_POST['passwords'], PDO::PARAM_STR);
-        $query->bindValue(':id', $_POST['id'], PDO::PARAM_INT);
+        $query->bindValue(':nom', $nom, PDO::PARAM_STR);
+        $query->bindValue(':prenom', $prenom, PDO::PARAM_STR);
+        $query->bindValue(':sexe', $sexe, PDO::PARAM_STR);
+        $query->bindValue(':date_de_naissance', $date_de_naissance, PDO::PARAM_STR);
+        $query->bindValue(':lieu_de_naissance', $lieu_de_naissance, PDO::PARAM_STR);
+        $query->bindValue(':adresse', $adresse, PDO::PARAM_STR);
+        $query->bindValue(':telephone', $telephone, PDO::PARAM_INT);
+        $query->bindValue(':pseudo', $pseudo, PDO::PARAM_STR);
+        $query->bindValue(':email', $email, PDO::PARAM_STR);
+        $query->bindValue(':passwords', md5($password), PDO::PARAM_STR);
+        $query->bindValue(':id', $id, PDO::PARAM_INT);
 
         $query->execute();
 
@@ -45,7 +40,7 @@ if(isset($_POST)){
     }
 }
 
-if(isset($_GET['id'])){
+if(isset($_GET['id']) && !empty($_GET['id'])){
     $id = strip_tags($_GET['id']);
     $sql = "SELECT * FROM `clients` WHERE `id`=:id;";
 
@@ -55,9 +50,11 @@ if(isset($_GET['id'])){
     $query->execute();
 
     $result = $query->fetch();
-}
+}    
+    
 
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -80,18 +77,17 @@ if(isset($_GET['id'])){
    </style>
 </head>
 <body>
-<h1>Modifier un client</h1>
+    <h1>Modifier un client </h1>
     <div class="w3-display-container">
         <img src="image.jpeg" alt=""  style="width: 100%; height: 1000px">
           <div class="w3-display-topmiddle w3-hover-white w3-margin w3-opacity-min" style="width: 50%; height: 95%;">
-         
               <form action="" method="POST" class=" w3-container  w3-padding">
                   <ul>
                       <li classe="w3-text-teal">Nom<span>*</span></li>
-                      <input class=" w3-border w3-light-grey w3-hover-light-blue" type="text" name="nom" id="nom" value="<?php echo $result['nom'] ?>" required>
+                      <input class=" w3-border w3-light-grey w3-hover-light-blue" type="text" name="nom" id="nom" value="<?= $result['nom'] ?>" required>
                       <br><br>
                       <li classe="w3-text-teal">Prénom<span>*</span></li>
-                      <input class=" w3-border w3-light-grey w3-hover-light-blue" type="text" name="prenom" id="prenom" value="<?php echo $result['prenom'] ?>" required>
+                      <input class=" w3-border w3-light-grey w3-hover-light-blue" type="text" name="prenom" id="prenom" value="<?= $result['prenom'] ?>" required>
                       <br><br>
                       <label classe="w3-text-teal">Sexe<span>*</span></label><br>
                       <select class="w3-section" style="width:80%; height: 40px" name="sexe" id="sexe" value="<?= $result['sexe'] ?>" required>
@@ -122,14 +118,11 @@ if(isset($_GET['id'])){
                       <li classe="w3-text-teal">Mot de passe <span>*</span></li>
                       <input class=" w3-border w3-light-grey w3-hover-light-blue" type="password" name="passwords" id="passwords" value="<?= $result['passwords'] ?>" required><br>
                       <br>
-                      <button class="w3-btn w3-blue">VALIDER</button>
-                      <input type="hidden" name="id" value="<?= $result['id'] ?>">
-    </form>
+                      <input type="submit" name="ajout" value="Modifier" class="w3-btn w3-blue"/>
+                      
                   </ul>
-                  
               </form>
          </div>
    </div>
 </body>
 </html>
- 

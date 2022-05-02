@@ -1,7 +1,7 @@
 <?php
 $mysqli = mysqli_connect('localhost', 'root', '', 'sunuprojet');
 
-// Obtenez le nombre total d'enregistrements de notre table "étudiants".
+// Obtenez le nombre total d'enregistrements de notre table "clients".
 $total_pages = $mysqli->query('SELECT * FROM clients')->num_rows;
 
 // Vérifiez si le numéro de page est spécifié et vérifiez s'il s'agit d'un numéro, sinon retournez le numéro de page par défaut qui est 1
